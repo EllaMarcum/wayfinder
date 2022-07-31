@@ -1,1 +1,60 @@
-/* BASIC STYLES HERE */
+body {
+  background-color: #112D4E;
+}
+
+.wayfinder-nav {
+  background-color: #3F72AF;
+}
+
+.trip-card {
+  background-color: #FEF5F1;
+  margin: 24px 8px;
+  padding: 0 8px 8px 8px;
+}
+
+.trip-header {
+  margin: 4px;
+}
+
+.trip-name {
+  display: inline-block;
+}
+
+.reservation-card {
+  background-color: #DBE2EF;
+  margin: 16px 8px;
+  padding: 4px;
+}
+
+.reservation-card button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.reservation-table-header {
+  margin: 16px 8px;
+  padding: 4px;
+}
+
+.reservation-form-card {
+  border-top: 1px solid #112D4E;
+  margin: 16px 0;
+  padding: 16px 0 4px 0;
+}
+
+.reservation-form-card input,
+.reservation-form-card select {
+  background-color: #F9F7F7;
+}
+
+.notes-container {
+  margin: 8px;
+}
+
+.notes-field {
+  width: 100%;
+  height: 100px;
+}
