@@ -5,8 +5,9 @@ import { Reservation } from "./Models/Reservation.js"
 
 function _loadState() {
   let tempState = JSON.parse(window.localStorage.getItem('wayfair_data'));
+  let state = { flag: '', trips: [], reservations: [] };
   if (tempState) {
-    let state = { trips: [], reservations: [] };
+    let state = { flag: '', trips: [], reservations: [] };
     tempState.trips.forEach(t => {
       state.trips.push(Object.assign(new Trip(), t));
     });
@@ -19,20 +20,23 @@ function _loadState() {
   } else {
     return null;
   }
+});
+  }
+
+return state;
 }
 
 class AppState extends EventEmitter {
   constructor() {
     super();
 
-    // Used to clear the local storage then comment back out.
-    //window.localStorage.clear();
-
     const state = _loadState();
     if (state) {
+      this.flag = '';
       this.trips = state.trips;
       this.reservations = state.reservations;
     } else {
+      this.flag = '';
       this.trips = [new Trip("Disneyland", "We are going to go to Disney!"), new Trip("Savannah", "Don't forget to go to Traylor Park's!")];
       this.reservations = [
         new Reservation(this.trips[0].id, "HOTEL", "Mariott", "X90345", "2424 West Way Rd", new Date('2024-12-30'), 234),
@@ -42,6 +46,9 @@ class AppState extends EventEmitter {
         new Reservation(this.trips[1].id, "HOTEL", "Mariott", "X90345", "2424 West Way Rd", new Date('2024-11-30'), 234),
       ];
     }
+    this.flag = state.flag;
+    this.trips = state.trips;
+    this.reservations = state.reservations;
   }
 }
 

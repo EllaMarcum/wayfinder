@@ -1,5 +1,3 @@
-
-export const tripsService = new TripsService();
 import { ProxyState } from "../AppState.js";
 import { Trip } from "../Models/Trip.js";
 import { Reservation } from "../Models/Reservation.js";
