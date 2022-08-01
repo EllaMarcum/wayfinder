@@ -1,3 +1,4 @@
+
 import { generateId } from "../Utils/generateId.js"
 
 export class Reservation {
@@ -15,13 +16,13 @@ export class Reservation {
   get ReservationTemplate() {
     return `
             <div class="row reservation-card shadow-sm rounded">
-              <div class="col-1">${this.type}</div>
-              <div class="col-2">${this.name}</div>
-              <div class="col-3">${this.confNumber}</div>
-              <div class="col-3">${this.address}</div>
-              <div class="col-1">${this.formatDate(this.date)}</div>
-              <div class="col-1">$${this.cost}</div>
-              <div class="col-1 d-flex flex-row-reverse"><button onClick="javascript:app.reservationsController.deleteReservation('${this.id}');">🗑️</button></div>
+              <div class="col-3 col-md-1">${this.type}</div>
+              <div class="col-4 col-md-2 d-md-flex flex-row-reverse">${this.name}</div>
+              <div class="col-5 col-md-3 d-flex flex-row-reverse">${this.confNumber}</div>
+              <div class="col-7 col-md-3 d-md-flex flex-row-reverse">${this.address}</div>
+              <div class="col-5 col-md-1 d-flex flex-row-reverse">${this.formatDate(this.date)}</div>
+              <div class="col-12 col-md-1 d-flex flex-row-reverse">$${this.cost}</div>
+              <div class="col-12 col-md-1 d-flex flex-row-reverse"><button onClick="javascript:app.reservationsController.deleteReservation('${this.id}');">🗑️</button></div>
             </div>
             `;
   }

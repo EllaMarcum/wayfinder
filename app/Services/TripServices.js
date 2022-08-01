@@ -1,10 +1,9 @@
+
+export const tripsService = new TripsService();
 import { ProxyState } from "../AppState.js";
 import { Trip } from "../Models/Trip.js";
 import { Reservation } from "../Models/Reservation.js";
-
-function _saveState() {
-  window.localStorage.setItem('wayfair_data', JSON.stringify({ trips: ProxyState.trips, reservations: ProxyState.reservations }));
-}
+import { generateId } from "../Utils/generateId.js"
 
 class TripsService {
   addTrip(name) {
@@ -28,7 +27,15 @@ class TripsService {
   saveNotes(id, notes) {
     const tripIndex = ProxyState.trips.findIndex((t) => t.id === id);
     ProxyState.trips[tripIndex].notes = notes;
-    _saveState();
+    ProxyState.flag = generateId();
+    alert("Notes saved.");
+  }
+
+  updateShow(id, show) {
+    const tripIndex = ProxyState.trips.findIndex((t) => t.id === id);
+    ProxyState.trips[tripIndex].show = (ProxyState.trips[tripIndex].show === '➖') ? '➕' : '➖';
+    ProxyState.flag = generateId();
+    return false;
   }
 }
 
